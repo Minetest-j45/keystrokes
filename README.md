@@ -1,5 +1,5 @@
-## Keystrokes ⧵n ⧵n
-TODO: ⧵n
-Optimise ⧵n
-Make configurable ⧵n
+## Keystrokes
+TODO:
+Optimise
+Make configurable
 Setup help
