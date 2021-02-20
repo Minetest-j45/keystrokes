@@ -1,5 +1,5 @@
 ## Keystrokes
 TODO:
-Optimise
+Optimise /n
 Make configurable
 Setup help
