@@ -107,7 +107,7 @@ minetest.register_globalstep(function(dtime)
         if ctl.place and not rmbpress then
             rmbclicks = rmbclicks + 1
         end
-        rmbpress = ctl.RMB
+        rmbpress = ctl.place
     end
 
     minetest.localplayer:hud_change(rmbcps, "text", "RMB CPS: " .. rmbclicks)
@@ -134,7 +134,7 @@ minetest.register_globalstep(function(dtime)
         if ctl.dig and not lmbpress then
            lmbclicks = lmbclicks + 1
         end
-        lmbpress = ctl.LMB
+        lmbpress = ctl.dig
     end
 
     minetest.localplayer:hud_change(lmbcps, "text", "LMB CPS: " .. lmbclicks)
