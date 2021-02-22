@@ -131,7 +131,7 @@ minetest.register_globalstep(function(dtime)
         end
         lmbpress = ctl.LMB
     else
-        if ctl.place and not lmbpress then
+        if ctl.dig and not lmbpress then
            lmbclicks = lmbclicks + 1
         end
         lmbpress = ctl.LMB
