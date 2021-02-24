@@ -39,7 +39,7 @@ local before = {}
 local version = ""
 local function getversion()
   local player = minetest.localplayer
-  if not player:get_control().place then
+  if player:get_control().place == nil then
     version = "pre5.4"
   else
     version = "5.4"
@@ -150,6 +150,8 @@ minetest.register_globalstep(function()
   if minetest.localplayer then
     local player = minetest.localplayer
     local controls = player:get_control()
+  	print(dump(keys))
+    print(version)
     for _, key in ipairs(keys) do
       if controls[key] and not before[key] then -- performance optimisations included
         minetest.localplayer:hud_change(huds[key], "text", image_press[key])
