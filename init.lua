@@ -1,10 +1,9 @@
 local huds = {}
 
-local keys
-local keys_54 = {"up", "left", "down", "right", "jump", "place", "dig", "aux1", "sneak"}
-local keys_pre54 = {"up", "left", "down", "right", "jump", "RMB", "LMB", "aux1", "sneak"}
+local keys = {"up", "left", "down", "right", "jump", "aux1", "sneak"}
 
 local huddefs
+
 local huddefs_54 = {
   up = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 0, y = 0}, text = "w_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
   left = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 33}, text = "a_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
@@ -60,12 +59,14 @@ local function check()
     end
     getversion()
     if version == "pre5.4" then
-      keys = keys_pre54
+      table.insert(keys, "RMB")
+      table.insert(keys, "LMB")
       huddefs = huddefs_pre54
       image_press = image_press_pre54
       image_normal = image_normal_pre54
     else
-      keys = keys_54
+      table.insert(keys, "place")
+      table.insert(keys, "dig")
       huddefs = huddefs_54
       image_press = image_press_54
       image_normal = image_normal_54
@@ -151,13 +152,14 @@ minetest.register_globalstep(function()
     local player = minetest.localplayer
     local controls = player:get_control()
     for _, key in ipairs(keys) do
-      if controls[key] and not before[key] then -- performance optimisations included
+      if controls[key] and not before[key] then
         minetest.localplayer:hud_change(huds[key], "text", image_press[key])
-        before[key] = true -- performance optimisations
-      elseif not controls[key] and before[key] then -- performance optimisations
+        before[key] = true
+      elseif not controls[key] and before[key] then
         minetest.localplayer:hud_change(huds[key], "text", image_normal[key])
-        before[key] = false -- performance optimisations
+        before[key] = false
       end
     end
   end
 end)
+
