@@ -2,15 +2,8 @@ local huds = {}
 
 local keys = {"up", "left", "down", "right", "jump", "aux1", "sneak"}
 
-local huddefs = {
-  up = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 0, y = 0}, text = "w_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  left = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 33}, text = "a_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  down = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 0, y = 33}, text = "s_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  right = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 33, y = 33}, text = "d_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  jump = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 99}, text = "space_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  aux1 = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 33, y = 0}, text = "e_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  sneak = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -66, y = 33}, text = "shift_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-}
+local huddefs
+
 local huddefs_54 = {
   up = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 0, y = 0}, text = "w_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
   left = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 33}, text = "a_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
