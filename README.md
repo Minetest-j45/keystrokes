@@ -13,7 +13,7 @@ Installation:<br>
 10. Search client<br>
 11. Enable client modding<br>
 It should now work!
-
+<br>
 TODO:<br>
 Optimise<br>
 Make configurable<br>
