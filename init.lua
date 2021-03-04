@@ -1,6 +1,7 @@
 --settings, choose what you want
 
 local hudpos = {x = 0.5, y = 0.5}--the position coordinates are the percentage of the screen, ranging in value from 0 to 1. 0 means left/top, 1 means right/bottom.
+--i recommend you dont set any to one as part of it wont be visible, max you should set one of the values to so you can still see it is 0.925 for x and 0.725 for y
 
 
 
