@@ -1,3 +1,10 @@
+--settings, choose what you want
+
+local hudpos = {x = 0.5, y = 0.5}--the position coordinates are the percentage of the screen, ranging in value from 0 to 1. 0 means left/top, 1 means right/bottom.
+
+
+
+--code
 local huds = {}
 
 local keys = {"up", "left", "down", "right", "jump", "aux1", "sneak"}
@@ -5,26 +12,26 @@ local keys = {"up", "left", "down", "right", "jump", "aux1", "sneak"}
 local huddefs
 
 local huddefs_54 = {
-  up = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 0, y = 0}, text = "w_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  left = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 33}, text = "a_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  down = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 0, y = 33}, text = "s_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  right = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 33, y = 33}, text = "d_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  jump = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 99}, text = "space_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  place = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 17, y = 66}, text = "rmb_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  dig = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 66}, text = "lmb_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  aux1 = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 33, y = 0}, text = "e_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  sneak = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -66, y = 33}, text = "shift_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  up = {hud_elem_type = "image", position = hudpos, offset = {x = 0, y = 0}, text = "w_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  left = {hud_elem_type = "image", position = hudpos, offset = {x = -33, y = 33}, text = "a_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  down = {hud_elem_type = "image", position = hudpos, offset = {x = 0, y = 33}, text = "s_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  right = {hud_elem_type = "image", position = hudpos, offset = {x = 33, y = 33}, text = "d_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  jump = {hud_elem_type = "image", position = hudpos, offset = {x = -33, y = 99}, text = "space_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  place = {hud_elem_type = "image", position = hudpos, offset = {x = 17, y = 66}, text = "rmb_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  dig = {hud_elem_type = "image", position = hudpos, offset = {x = -33, y = 66}, text = "lmb_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  aux1 = {hud_elem_type = "image", position = hudpos, offset = {x = 33, y = 0}, text = "e_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  sneak = {hud_elem_type = "image", position = hudpos, offset = {x = -66, y = 33}, text = "shift_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
 }
 local huddefs_pre54 = {
-  up = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 0, y = 0}, text = "w_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  left = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 33}, text = "a_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  down = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 0, y = 33}, text = "s_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  right = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 33, y = 33}, text = "d_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  jump = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 99}, text = "space_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  RMB = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 17, y = 66}, text = "rmb_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  LMB = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 66}, text = "lmb_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  aux1 = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = 33, y = 0}, text = "e_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
-  sneak = {hud_elem_type = "image", position = {x = 0.5, y = 0.5}, offset = {x = -66, y = 33}, text = "shift_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  up = {hud_elem_type = "image", position = hudpos, offset = {x = 0, y = 0}, text = "w_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  left = {hud_elem_type = "image", position = hudpos, offset = {x = -33, y = 33}, text = "a_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  down = {hud_elem_type = "image", position = hudpos, offset = {x = 0, y = 33}, text = "s_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  right = {hud_elem_type = "image", position = hudpos, offset = {x = 33, y = 33}, text = "d_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  jump = {hud_elem_type = "image", position = hudpos, offset = {x = -33, y = 99}, text = "space_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  RMB = {hud_elem_type = "image", position = hudpos, offset = {x = 17, y = 66}, text = "rmb_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  LMB = {hud_elem_type = "image", position = hudpos, offset = {x = -33, y = 66}, text = "lmb_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  aux1 = {hud_elem_type = "image", position = hudpos, offset = {x = 33, y = 0}, text = "e_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
+  sneak = {hud_elem_type = "image", position = hudpos, offset = {x = -66, y = 33}, text = "shift_key.png", alignment = {x = 1, y = 1}, scale = {x = 2, y = 2}, number = 0xFFFFFF},
 }
 local image_press
 local image_press_54 = {up = "w_key_press.png", left = "a_key_press.png", down = "s_key_press.png", right = "d_key_press.png", jump = "space_key_press.png", place = "rmb_key_press.png", dig = "lmb_key_press.png", aux1 = "e_key_press.png", sneak = "shift_key_press.png"}
@@ -71,10 +78,10 @@ local function check()
       image_press = image_press_54
       image_normal = image_normal_54
     end
-    rmbcps = minetest.localplayer:hud_add({hud_elem_type = "text", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 159}, text = "RMB CPS: 0", alignment = {x = 1, y = 1}, scale = {x = 1, y = 1}, number = 0xFFFFFF})
-    lmbcps = minetest.localplayer:hud_add({hud_elem_type = "text", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 145}, text = "LMB CPS: 0", alignment = {x = 1, y = 1}, scale = {x = 1, y = 1}, number = 0xFFFFFF})
+    rmbcps = minetest.localplayer:hud_add({hud_elem_type = "text", position = hudpos, offset = {x = -33, y = 159}, text = "RMB CPS: 0", alignment = {x = 1, y = 1}, scale = {x = 1, y = 1}, number = 0xFFFFFF})
+    lmbcps = minetest.localplayer:hud_add({hud_elem_type = "text", position = hudpos, offset = {x = -33, y = 145}, text = "LMB CPS: 0", alignment = {x = 1, y = 1}, scale = {x = 1, y = 1}, number = 0xFFFFFF})
     checkfps()
-    framesps = minetest.localplayer:hud_add({hud_elem_type = "text", position = {x = 0.5, y = 0.5}, offset = {x = -33, y = 131}, text = "FPS: " .. fps, alignment = {x = 1, y = 1}, scale = {x = 3, y = 3}, number = 0xFFFFFF})
+    framesps = minetest.localplayer:hud_add({hud_elem_type = "text", position = hudpos, offset = {x = -33, y = 131}, text = "FPS: " .. fps, alignment = {x = 1, y = 1}, scale = {x = 3, y = 3}, number = 0xFFFFFF})
     for _, key in ipairs(keys) do
       huds[key] = minetest.localplayer:hud_add(huddefs[key])
     end
