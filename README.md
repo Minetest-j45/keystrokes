@@ -1,6 +1,9 @@
 ## Keystrokes
 
-Installation:<br>
+# Description
+displays some textures on your hud that change when you press a key on your keyboard corresponding to it
+
+# Installation
 1. Download the code and the texturepack (https://github.com/Minetest-j45/keystrokes-textures)<br>
 2. Put the texturepack folder in /minetestdir/textures/<br>
 3. Put the code folder in /minetestdir/clientmods/<br>
